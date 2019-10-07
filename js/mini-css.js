@@ -3,7 +3,7 @@ import { convertObjectToCss } from "./utils.js";
 /**
  * @author Conor Irwin <https://github.com/RetroVX> 
  * @license {@link http://opensource.org/licenses/MIT|MIT License}
- * @class styleIn
+ * @class miniCSS
  * @classdesc
  * A small library to create css within javascript using template literals or objects
  * @version 1.0.0
