@@ -1,0 +1,18 @@
+{
+  "source": "js/mini-css.js",
+  "main": "dist/mini-css.js",
+  "module": "dist/mini-css.mjs",
+  "unpkg": "dist/mini-css.umd.js",
+  "scripts": {
+    "build": "microbundle",
+    "dev": "microbundle watch"
+  },
+  "name": "mini-css",
+  "description": "A small library to create css within javascript using template literals or objects",
+  "version": "1.0.0",
+  "author": "Conor Irwin",
+  "license": "MIT",
+  "devDependencies": {
+    "microbundle": "^0.11.0"
+  }
+}
