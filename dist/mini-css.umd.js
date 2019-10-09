@@ -34,7 +34,7 @@
   /**
    * @author Conor Irwin <https://github.com/RetroVX> 
    * @license {@link http://opensource.org/licenses/MIT|MIT License}
-   * @class styleIn
+   * @class miniCSS
    * @classdesc
    * A small library to create css within javascript using template literals or objects
    * @version 1.0.0
@@ -42,7 +42,7 @@
    * // either create your own stylesheet and pass in the sheet or use createStyleSheet()
    * const css = new miniCSS().createStyleSheet();
    * // add new css rule on id
-   * css.set('.container', `background-color: red;`).set('#header', { backgroundColor: 'yellow' });
+   * css.add('.container', `background-color: red;`).add('#header', { backgroundColor: 'yellow' });
    */
 
   var miniCSS = function miniCSS(sheet) {
@@ -96,19 +96,19 @@
     return getSelectors;
   };
   /**
-   * Sets new rules to the stylesheet with the provided selector.
+   * Adds new rules to the stylesheet with the provided selector.
    * You can pass in either a string or an object to create the styles
-   * @name miniCSS.set
+   * @name miniCSS.add
    * @type {function}
    * @param {string} selector - Selector to set rules for
    * @param {string||object} style - css styles to add
    * @example
-   * css.set('#id', `background-color: red;`);
-   * css.set('.class', { backgroundColor: 'green' });
+   * css.add('#id', `background-color: red;`);
+   * css.add('.class', { backgroundColor: 'green' });
    */
 
 
-  miniCSS.prototype.set = function set (selector, style) {
+  miniCSS.prototype.add = function add (selector, style) {
     var sheet = this.sheet;
     var rule;
 

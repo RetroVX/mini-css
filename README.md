@@ -1,6 +1,6 @@
 # Mini-CSS
 
-A small library to create css within javascript using template literals or objects
+A small library (1kb) to create css within javascript using template literals or objects
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -26,8 +26,8 @@ import miniCSS from "./mini-css.min.js";
 
 const css = new miniCSS()
     .createStyleSheet()
-    .set('#id', `background-color: red;`)
-    .set('.class', { backgroundColor: 'green' });
+    .add('#id', `background-color: red;`)
+    .add('.class', { backgroundColor: 'green' });
 ```
 
 ### Examples
@@ -47,11 +47,11 @@ const css = new miniCSS().setSheet(sheet);
 ```
 
 #### Add a new rule to the stylesheet
-Set creates a new rule and adds it to the bottom of the stylesheet.
+Add creates a new rule and adds it to the bottom of the stylesheet.
 You can pass in either a template literal or an object.
 ```javascript
 // basic usage
-css.set('.container', `background-color: red;`).set('#header', { backgroundColor: 'yellow' });
+css.add('.container', `background-color: red;`).add('#header', { backgroundColor: 'yellow' });
 
 const stringExample = {
     selector: '#header',
@@ -72,7 +72,7 @@ const objectExample = {
     }
 }
 
-css.set(stringExample.selector, stringExample.style).set(objectExample.selector, objectExample.style);
+css.add(stringExample.selector, stringExample.style).add(objectExample.selector, objectExample.style);
 ```
 
 #### Get all rules of a selector

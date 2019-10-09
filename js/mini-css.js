@@ -11,7 +11,7 @@ import { convertObjectToCss } from "./utils.js";
  * // either create your own stylesheet and pass in the sheet or use createStyleSheet()
  * const css = new miniCSS().createStyleSheet();
  * // add new css rule on id
- * css.set('.container', `background-color: red;`).set('#header', { backgroundColor: 'yellow' });
+ * css.add('.container', `background-color: red;`).add('#header', { backgroundColor: 'yellow' });
  */
 export default class miniCSS {
 
@@ -73,17 +73,17 @@ export default class miniCSS {
 
 
     /**
-     * Sets new rules to the stylesheet with the provided selector.
+     * Adds new rules to the stylesheet with the provided selector.
      * You can pass in either a string or an object to create the styles
-     * @name miniCSS.set
+     * @name miniCSS.add
      * @type {function}
      * @param {string} selector - Selector to set rules for
      * @param {string||object} style - css styles to add
      * @example
-     * css.set('#id', `background-color: red;`);
-     * css.set('.class', { backgroundColor: 'green' });
+     * css.add('#id', `background-color: red;`);
+     * css.add('.class', { backgroundColor: 'green' });
      */
-    set(selector, style) {
+    add(selector, style) {
 
         const sheet = this.sheet;
         let rule;
