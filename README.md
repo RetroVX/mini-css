@@ -75,6 +75,20 @@ const objectExample = {
 css.add(stringExample.selector, stringExample.style).add(objectExample.selector, objectExample.style);
 ```
 
+#### Inject styles into the stylesheet
+```javascript
+css.inject(`
+.class {
+    background-color: red;
+    color: white;
+}
+#id {
+    background-color: green;
+    margin: 5px;
+}
+`)
+```
+
 #### Get all rules of a selector
 ```javascript
 const container = css.get('.container');

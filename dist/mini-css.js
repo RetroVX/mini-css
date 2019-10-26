@@ -32,7 +32,7 @@ var convertObjectToCss = function (obj) {
  * @class miniCSS
  * @classdesc
  * A small library to create css within javascript using template literals or objects
- * @version 1.0.0
+ * @version 1.1.0
  * @example
  * // either create your own stylesheet and pass in the sheet or use createStyleSheet()
  * const css = new miniCSS().createStyleSheet();
@@ -47,6 +47,12 @@ var miniCSS = function miniCSS(sheet) {
    * miniCSS.createStyleSheet();
    */
   this.sheet = sheet;
+  /**
+   * @name miniCSS.style
+   * A reference the the stylesheet element
+   */
+
+  this.style = null;
   return this;
 };
 /**
@@ -63,6 +69,7 @@ miniCSS.prototype.createStyleSheet = function createStyleSheet () {
   var style = document.createElement("style");
   document.head.appendChild(style);
   this.sheet = style.sheet;
+  this.style = style;
   return this;
 };
 /**
@@ -117,6 +124,25 @@ miniCSS.prototype.add = function add (selector, style) {
 
   var index = sheet.cssRules.length;
   sheet.insertRule(rule, index);
+  return this;
+};
+/**
+ * injects new rules to the stylesheet using innerHTML.
+ * This will overide any css added using .add()
+ * @name miniCSS.inject
+ * @type {function}
+ * @param {string} styles - css styles to add
+ * @example
+ * css.inject(`
+ * .class { background-color: red; }
+ * #id { background-color: green; }
+ * `);
+ */
+
+
+miniCSS.prototype.inject = function inject (styles) {
+  var style = this.style;
+  style.innerHTML = styles;
   return this;
 };
 /**
