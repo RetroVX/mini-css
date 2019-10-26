@@ -110,6 +110,9 @@ css.remove(rules[1]);
 
 ### Built With [MicroBundle](https://github.com/developit/microbundle)
 
+### Projects Using MiniCSS
+* [Gradient Maker](https://github.com/RetroVX/gradientMaker)
+
 ### Todo
 * Docs
 * Examples
